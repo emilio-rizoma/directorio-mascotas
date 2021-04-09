@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { DogApiService } from 'src/app/core/services/dog-api.service';
 
 interface ListPetI {
   id: number;
@@ -24,7 +25,8 @@ export class ListComponent implements OnInit {
   petList: ListPetI[] | null = null;
   constructor(
     private router: Router,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private dogService: DogApiService
   ) { }
 
   ngOnInit(): void {
@@ -32,18 +34,20 @@ export class ListComponent implements OnInit {
   }
 
   detailsWith(id: number) {
-    console.log(id);
     this.router.navigateByUrl(`details/${id}`);
   }
 
   listPets() {
     // Real API request...
+    this.dogService.list().pipe(take(1)).toPromise().then(res => {
+      console.log(res);
+    })
     this.httpClient.get<ListPetI[]>('assets/data/dummy.json').pipe(take(1)).toPromise().then(res => {
-      this.petList = res.map(res => {
+      this.petList = res.map(m => {
         return {
-          id: res.id,
-          name: res.name,
-          origin: res.origin
+          id: m.id,
+          name: m.name,
+          origin: m.origin
         }
       });
     });

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: '',
+  apiUrl: 'https://api.thedogapi.com/v1',
   apiKey: '07297ec8-bd13-4052-ba39-9bcc82e9236d'
 };
 
