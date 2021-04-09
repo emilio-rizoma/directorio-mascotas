@@ -2,13 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { DetailResponse, PetDetailI } from 'src/app/shared/models/api.model';
 import { environment } from 'src/environments/environment';
-
-interface ListPetI {
-  id: number;
-  name: string;
-  origin: string | undefined;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -21,24 +16,24 @@ export class DogApiService {
   }
 
   // READ REQUEST
-  read(param?: any): Observable<any> {
+  read(param?: any): Observable<PetDetailI> {
     let option = { 
       withCredentials: this.httpOptions.withCredentials,
       params: param
     };
-    return this.httpClient.get(`/v1/breeds/search`, this.httpOptions).pipe(
+    return this.httpClient.get(`/v1/images/search`, option).pipe(
       map((res: any) => {
-        return res.data;
+        return res.pop() as PetDetailI;
       })
     )
   }
 
   // LIST REQUEST
-  list(): Observable<any> {  
+  list(): Observable<DetailResponse[]> {  
 
     return this.httpClient.get(`/v1/breeds`, this.httpOptions).pipe(
       map((res: any) => {
-        return res;
+        return res as DetailResponse[];
       })
     )
   }

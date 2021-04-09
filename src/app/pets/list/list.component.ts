@@ -1,20 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { DialogService } from 'src/app/core/services/dialog.service';
 import { DogApiService } from 'src/app/core/services/dog-api.service';
-
-interface ListPetI {
-  id: number;
-  name: string;
-  origin: string | undefined;
-}
-
-// interface ImageI {
-//   width?: number,
-//   height?: number,
-//   url: string
-// }
+import { DetailResponse } from 'src/app/shared/models/api.model';
 
 @Component({
   selector: 'app-list',
@@ -22,15 +11,20 @@ interface ListPetI {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  petList: ListPetI[] | null = null;
+  petList: DetailResponse[] | null = null;
   constructor(
     private router: Router,
-    private httpClient: HttpClient,
-    private dogService: DogApiService
+    private dogService: DogApiService,
+    private modalService: DialogService
   ) { }
 
   ngOnInit(): void {
     this.listPets();
+
+  }
+
+  openModal(breed: DetailResponse) {
+    this.modalService.open(breed);
   }
 
   detailsWith(id: number) {
@@ -38,19 +32,9 @@ export class ListComponent implements OnInit {
   }
 
   listPets() {
-    // Real API request...
     this.dogService.list().pipe(take(1)).toPromise().then(res => {
-      console.log(res);
+      this.petList = res;
     })
-    this.httpClient.get<ListPetI[]>('assets/data/dummy.json').pipe(take(1)).toPromise().then(res => {
-      this.petList = res.map(m => {
-        return {
-          id: m.id,
-          name: m.name,
-          origin: m.origin
-        }
-      });
-    });
   }
 
 }

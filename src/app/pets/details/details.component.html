@@ -2,12 +2,13 @@
     <div class="col-10">
         <div class="jumbotron jumbotron-fluid rounded bg-white" *ngIf="petDetail !== null">
             <div class="row px-4 justify-content-center">
-                <div class="col-6 text-center">
+                <div class="col-lg-6 col-md-12 col-sm-12 text-center">
                     <h2 class="display-5">{{petDetail.name}}</h2>
-                    <img src="{{petDetail.image.url}}" width="350px" height="auto" alt="">
+                    <img src="{{petDetail.image.url}}" class="detail-img" alt="">
                     <p class="lead">{{petDetail.origin}}</p>
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <h2 class="display-6 text-center">Details</h2>
                     <hr class="my-4">
                     <h5>Bred for</h5>
                     <p class="lead">{{petDetail.bred_for}}</p>
@@ -15,7 +16,13 @@
                     <p>{{petDetail.temperament}}.</p>
                     <h5>Lifespan</h5>
                     <p>{{petDetail.life_span}}</p>
+                    <h5>Wikipedia</h5>
+                    <a href="{{petDetail.wikipedia_url}}">{{petDetail.wikipedia_url}}</a>
                 </div>
+            </div>
+            <div class="row justify-content-center pt-4">
+                <button class="btn" [routerLink]="['/list']" routerLinkActive="router-link-active">Back to the
+                    list</button>
             </div>
         </div>
     </div>

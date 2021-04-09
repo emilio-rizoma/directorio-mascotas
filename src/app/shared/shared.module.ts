@@ -4,11 +4,15 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { ModalComponent } from './components/modal/modal.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
   declarations: [
-    NavBarComponent
+    NavBarComponent,
+    ModalComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     RouterModule,
     ReactiveFormsModule,
 
-    NavBarComponent
+    NavBarComponent,
+    ModalComponent,
+    LoaderComponent
   ]
 })
 export class SharedModule { }

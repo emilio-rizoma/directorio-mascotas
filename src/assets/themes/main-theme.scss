@@ -50,4 +50,16 @@ body {
     .router-link-active {
         color: black;
     }
+
+    .detail-img {
+        width: 350px;
+        height: auto;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .detail-img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }

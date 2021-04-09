@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '', component: PetsComponent, children: [
       { path: 'home', component: HomeComponent },
       { path: 'list', component: ListComponent },
-      { path: 'details/:id', component: DetailsComponent },
+      { path: 'details/:name', component: DetailsComponent },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]
   },
