@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;400;500;600;700;800;900&family=Montserrat&display=swap");
+html,
+body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Catamaran", sans-serif;
+}

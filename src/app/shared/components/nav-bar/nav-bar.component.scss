@@ -1,0 +1,11 @@
+.icon-menu {
+    mask: url('../../../../assets/img/pet-menu.svg');
+}
+
+.icon {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: #08ffa9;
+    mask-size: cover;
+}

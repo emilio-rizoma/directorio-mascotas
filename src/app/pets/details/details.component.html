@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="jumbotron jumbotron-fluid rounded bg-white" *ngIf="petDetail !== null">
+            <div class="row px-4 justify-content-center">
+                <div class="col-6 text-center">
+                    <h2 class="display-5">{{petDetail.name}}</h2>
+                    <img src="{{petDetail.image.url}}" width="350px" height="auto" alt="">
+                    <p class="lead">{{petDetail.origin}}</p>
+                </div>
+                <div class="col-6">
+                    <hr class="my-4">
+                    <h5>Bred for</h5>
+                    <p class="lead">{{petDetail.bred_for}}</p>
+                    <h5>Temperament</h5>
+                    <p>{{petDetail.temperament}}.</p>
+                    <h5>Lifespan</h5>
+                    <p>{{petDetail.life_span}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

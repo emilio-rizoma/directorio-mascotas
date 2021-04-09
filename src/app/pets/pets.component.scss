@@ -1,0 +1,11 @@
+#page-content-wrapper {
+    width: 100%;
+    max-width: 100vw;
+
+    #pets-container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0;
+    }
+}
+

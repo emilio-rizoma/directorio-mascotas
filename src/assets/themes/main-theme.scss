@@ -1,0 +1,53 @@
+body {
+    background: #e9e9e9;
+    background-color: #e9e9e9;
+}
+
+.main-theme {
+    $base-color: #fbff08;
+    $contrast-color: #6614ff;
+    $light-color: #e9e9e9;
+    color: black !important;
+
+    .base-color {
+        color: $base-color;
+    }
+
+    .base-bg {
+        background: $base-color;
+        background-color: $base-color;
+    }
+
+    .contrast-color {
+        color: $contrast-color;
+    }
+
+    .contrast-bg {
+        background: $contrast-color;
+        background-color: $contrast-color;
+    }
+
+    .light-color {
+        color: $light-color;
+    }
+
+    .light-bg {
+        background: $light-color;
+        background-color: $light-color;
+    }
+
+    .btn {
+        background-color: $light-color;
+        color: $contrast-color;
+        transition: color ease 800ms;
+        border-radius: 18px;
+        border-width: 2px;
+        border-color: $contrast-color;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .router-link-active {
+        color: black;
+    }
+}

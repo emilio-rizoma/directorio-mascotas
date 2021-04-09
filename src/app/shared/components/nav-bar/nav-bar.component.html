@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg base-bg">
+    <a id="menu-toggle" [routerLink]="['/home']" style="text-decoration: none;">
+        <h6 class="contrast-color">My Pet List</h6>
+    </a>
+    <button class="navbar-toggler base-color" (click)="isNavbarCollapsed = !isNavbarCollapsed;" type="button"
+        data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="!isNavbarCollapsed" aria-label="Toggle navigation">
+        <span class="icon icon-menu"></span>
+    </button>
+
+    <div [collapse]="isNavbarCollapsed" [isAnimated]="true" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link contrast-color" [routerLink]="['/home']" routerLinkActive="router-link-active">Home<span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link contrast-color" [routerLink]="['/list']" routerLinkActive="router-link-active">List<span
+                        class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>

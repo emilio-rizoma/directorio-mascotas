@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+    <div class="col-11" style="max-height: 80vh; overflow-y: auto;">
+        <table class="table" *ngIf="petList != null">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Origen</th>
+                    <th scope="col">Detalles</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                <tr *ngFor="let pet of petList">
+                    <th scope="row">{{pet.name}}</th>
+                    <td>{{pet.origin || 'Unknown'}}</td>
+                    <td>
+                        <button class="badge badge-primary btn" (click)="detailsWith(pet.id)">Detalles</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
