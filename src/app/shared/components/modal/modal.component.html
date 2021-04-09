@@ -11,25 +11,13 @@
             </div>
             <div class="modal-body">
                 <div class="row justify-content-center">
-                    <div class="col-10">
-                        <div class="jumbotron jumbotron-fluid rounded bg-white" *ngIf="data.content !== null">
-                            <div class="row px-4 justify-content-center" >
-                                <div class="col-lg-6 col-md-12 col-sm-12 text-center">
-                                    <h2 class="display-5">{{data.content.name}}</h2>
-                                    <img src="{{data.content.image.url}}" class="detail-img" alt="">
-                                    <p class="lead">{{data.content.origin}}</p>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <h2 class="display-6 text-center">Details</h2>
-                                    <hr class="my-4">
-                                    <h5>Bred for</h5>
-                                    <p class="lead">{{data.content.bred_for}}</p>
-                                    <h5>Temperament</h5>
-                                    <p>{{data.content.temperament}}.</p>
-                                    <h5>Lifespan</h5>
-                                    <p>{{data.content.life_span}}</p>
-                                </div>
-                            </div>
+                    <div class="card border-0" style="width: 18rem;" *ngIf="data.content !== null">
+                        <img class="card-img-top" src="{{data.content.image.url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Bred for</h5>
+                            <p class="card-text">{{data.content.bred_for}}</p>
+                            <h5 class="card-title">Temperament</h5>
+                            <p class="card-text">{{data.content.temperament}}.</p>
                         </div>
                     </div>
                 </div>

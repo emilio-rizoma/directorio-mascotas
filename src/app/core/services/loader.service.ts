@@ -14,16 +14,12 @@ export class LoaderService {
     return this.requests.length !== 0;
   }
 
-  onStarted(request: HttpRequest<any>): void {
-    console.log('Loader Started');
-    
+  onStarted(request: HttpRequest<any>): void {    
     this.requests.push(request);
     this.notify();
   }
 
-  onFinished(request: HttpRequest<any>): void {
-    console.log('Loader Finished');
-    
+  onFinished(request: HttpRequest<any>): void {    
     const index = this.requests.indexOf(request);
     if (index !== -1) {
       this.requests.splice(index, 1);
